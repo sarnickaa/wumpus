@@ -1,45 +1,57 @@
 module Wumpus
   class Room
     def initialize(number)
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @number = number
+      @hazards = []
+      @neighbors = []
     end
 
-    attr_reader :number, :neighbors
+    attr_reader :neighbors
+    attr_accessor :number
+    attr_accessor :hazards
+    attr_accessor :neighbors
 
     def add(thing)
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @hazards << thing
     end
 
     def remove(thing)
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @hazards.delete(thing)
     end
 
     def has?(thing)
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @hazards.include? thing
     end
 
     def empty?
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @hazards.empty?
     end
 
     def safe?
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      room_not_safe = @hazards.any?
+      @neighbors.each do |the_neighbor| 
+        if the_neighbor.hazards.any?
+          room_not_safe = true
+        end
+      end
+      !room_not_safe
     end
 
     def connect(other_room)
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @neighbors.push(other_room)
+      other_room.neighbors.push self
     end
 
     def exits
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @neighbors.map { |exit| exit.number }
     end
 
     def neighbor(number)
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @neighbors.select {|the_neighbor| the_neighbor.number == number}.first
     end
 
     def random_neighbor
-      raise NotImplementedError, "See lib/wumpus/room.rb"
+      @neighbors.sample
     end
   end
 end
