@@ -1,4 +1,5 @@
-Instructions for DIY Hunt the Wumpus
+# Ruby OOP Homework
+## Instructions for DIY Hunt the Wumpus
 
 1) Create a branch of your own to do your work on:
 
@@ -14,6 +15,14 @@ Instructions for DIY Hunt the Wumpus
 
 4) Edit `lib/wumpus/room.rb` to get the tests to pass.
 
+    * Note: Tests are found in `test/unit/room_test.rb`
+
+If you get stuck, or you just want to see how Practicing Ruby implemented 
+this game, you can always check out the reference implementation:
+
+    $ git checkout origin/reference_implementation
+
+## Bonus
 5) Download the tests for the `Wumpus::Cave` class:
  
     $ git pull origin cave_tests
@@ -42,7 +51,4 @@ Instructions for DIY Hunt the Wumpus
 
     $ bin/wumpus
 
-If you get stuck, or you just want to see how Practicing Ruby implemented 
-this game, you can always check out the reference implementation:
-
-    $ git checkout origin/reference_implementation
+Resource: https://github.com/elm-city-craftworks/wumpus
