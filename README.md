@@ -15,7 +15,7 @@
 
 4) Edit `lib/wumpus/room.rb` to get the tests to pass.
 
-    * Note: Tests are found in `test/unit/room_test.rb`
+    * Note: Tests are found in test/unit/room_test.rb
 
 If you get stuck, or you just want to see how Practicing Ruby implemented 
 this game, you can always check out the reference implementation:
