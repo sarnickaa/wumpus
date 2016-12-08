@@ -1,6 +1,8 @@
 # Ruby OOP Homework
 ## Instructions for DIY Hunt the Wumpus
 
+[This article helps with the context of the homework. Read this (particularly the concept of “rooms”, neighbors, and exits).](http://practicingruby.com/articles/wumpus)
+
 1) Create a branch of your own to do your work on:
 
     $ git checkout -b diy_wumpus
