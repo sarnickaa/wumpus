@@ -31,7 +31,17 @@ module Wumpus
 
     def safe?
       # raise NotImplementedError, "See lib/wumpus/room.rb"
-      hazards.empty? && neighbors { |a| a.hazards.empty? }
+      safe_room = hazards.empty? #return true if empty
+      neighb = true # truthy
+
+      neighbors.each do |neighbor|
+        if neighbor.hazards.empty? # returns true if no hazards in neighbors hazards array
+          neighb # = true
+        else
+          neighb = false # set to false if hazard in array found
+        end
+      end
+      safe_room && neighb # && only returns true if both truthy
     end
 
     def connect(other_room)
@@ -46,10 +56,13 @@ module Wumpus
     end
 
     def exits
-      neighbors
+      neighbors.map { |n| n.number }
     end
 
     def neighbor(number)
+      # check to see if number passed is a neighbor
+      # neighbour number must be in the neighbors array
+      neighbors.find { |n| n.number == number }
 
     end
 
